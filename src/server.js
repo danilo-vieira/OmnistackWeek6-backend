@@ -8,8 +8,6 @@ const cors = require('cors');
 // Onde serão guardadas todas as informações da aplicação
 const app = express();
 
-app.use(cors());
-
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
@@ -33,12 +31,13 @@ app.use((req, res, next) => {
   return next();
 });
 
+app.use(cors());
 // Quando se vai cadastrar um módulo dentro do express usa-se o método .use
 app.use(express.json());
 // premite o envio de arquivos nas requisições
 app.use(express.urlencoded({ extended: true }));
 app.use("/files", express.static(path.resolve(__dirname, '..', 'tmp')))
 
-app.use(require('./routes'));
+app.use(require("./routes"));
 
 server.listen(process.env.PORT || 3333); // Porta a ser usada pelo Node.js

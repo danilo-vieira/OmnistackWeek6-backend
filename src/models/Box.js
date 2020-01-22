@@ -4,10 +4,10 @@ const mongoose = require('mongoose');
 const Box = new mongoose.Schema({
   title: { // Como é um dado obrigatório, precisa-se do required
     type: String,
-    required: true
+    required: true,
   },
   // É um array com outros models
-  files: [{ type: mongoose.Schema.Types.ObjectId, ref: 'File' }], // Armazena apenas os Id's dos models
+  files: [{ type: mongoose.Schema.Types.ObjectId, ref: 'File' }] // Armazena apenas os Id's dos models
 }, {
   timestamps: true
 });
