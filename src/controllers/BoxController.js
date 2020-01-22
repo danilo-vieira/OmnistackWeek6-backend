@@ -6,7 +6,7 @@ class BoxController {
 // mensagem de "Finish")
   async store(req, res) { // Função para criar Boxes dentro da aplicação
     // req.body é o corpo da requisição (JSON)
-    const box = Box.create({ title: req.body.title });
+    const box = Box.create(req.body);
 
     return res.json(box);
   }
